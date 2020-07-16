@@ -47,9 +47,10 @@
         <td>
             {{ $plano->descricao }}
         </td>
-        <td style="width: 200px">
-            <a href="{{ route('planos.edit', $plano->url) }}" class="btn btn-info">EDITAR <i class="fas fa-edit"></i></a>
-            <a href="{{ route('planos.show', $plano->url) }}" class="btn btn-warning">VER <i class="fas fa-eye"></i></a>
+        <td style="width: 250px">
+            <a href="{{ route('detalhes.plano.index', $plano->url) }}" class="btn btn-primary">Detalhes</a>
+            <a href="{{ route('planos.edit', $plano->url) }}" class="btn btn-info">Editar</a>
+            <a href="{{ route('planos.show', $plano->url) }}" class="btn btn-warning">Ver</a>
         </td>       
     </tr>
         @endforeach

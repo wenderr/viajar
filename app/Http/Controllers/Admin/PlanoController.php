@@ -59,10 +59,19 @@ class PlanoController extends Controller
 
     public function destroy($url)
     {
-        $plano = $this->repository->where('url', $url)->first();
+        $plano = $this->repository
+                        ->with('detalhes')
+                        ->where('url', $url)
+                        ->first();
 
         if (!$plano)
         return redirect()->back();
+
+        if ($plano->detalhes->count() > 0){
+        return redirect()
+                    ->back()
+                    ->with('error', 'Existem detalhes vinculados a esse plano, portanto não pode ser excluído.');
+        }
 
           $plano->delete();
           return redirect()->route('planos.index');

@@ -23,6 +23,7 @@
                     <strong>Descrição: </strong> {{ $plano->descricao }}
                 </li>
             </ul>
+            @include('admin.includes.alerts')
         
         <form action="{{ route('planos.destroy', $plano->url) }}" method="POST">
             @csrf
